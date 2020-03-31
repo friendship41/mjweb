@@ -18,10 +18,10 @@ public class LoginInterceptor extends HandlerInterceptorAdapter
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
         HttpSession session = request.getSession();
-        ClientCustomerVO customer = (ClientCustomerVO)session.getAttribute("customer");
+        ClientCustomerVO customer = (ClientCustomerVO)session.getAttribute("mjcustomer");
         if(customer == null)
         {
-            response.sendRedirect("/index.do");
+            response.sendRedirect("/mj/index.mdo");
             return false;
         }
         return true;

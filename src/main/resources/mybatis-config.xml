@@ -9,8 +9,10 @@
     </settings>
     <typeAliases>
         <typeAlias type="com.cal.mj.main.vo.ClientCustomerVO" alias="customer"/>
+        <typeAlias type="com.cal.mj.main.vo.MjVO" alias="mj"/>
     </typeAliases>
     <mappers>
         <mapper resource="mappings/customer-mapping.xml"/>
+        <mapper resource="mappings/mj-mapping.xml"/>
     </mappers>
 </configuration>

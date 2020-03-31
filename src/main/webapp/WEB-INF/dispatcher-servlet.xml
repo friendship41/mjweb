@@ -24,6 +24,10 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
 
+    <!-- resources mapping -->
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
+
+
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/*.do"/>

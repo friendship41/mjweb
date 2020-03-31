@@ -12,7 +12,7 @@
   </head>
   <body>
   <h1>면접장소 기록소 입니다</h1>
-  <form action="/login.do" method="post">
+  <form action="login.mdo" method="post">
     아이디 : <input type="text" name="customerTbEmail"><br>
     비번 : <input type="password" name="customerTbPassword"><br>
     <button>고고고</button>

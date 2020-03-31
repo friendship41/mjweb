@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MjDAO">
+
+    <select id="selectMjList" parameterType="mj" resultType="mj">
+        SELECT
+            *
+        FROM MJ
+        WHERE CUSTOMER_TB_NO = #{customerTbNo}
+        AND MJ_DATE BETWEEN #{startDate} AND #{endDate}+1
+    </select>
+
+    <select id="selectMjSingle" parameterType="mj" resultType="mj">
+        SELECT
+            *
+        FROM MJ
+        WHERE MJ_SEQ = #{mjSeq}
+    </select>
+
+    <insert id="insertMj" parameterType="mj">
+        INSERT INTO MJ
+        VALUES (MJ_SEQ.NEXTVAL, #{customerTbNo}, #{mjName}, #{mjLoc}, #{mjDate}, #{mjComment}, TRUNC(#{mjLat},6), TRUNC(#{mjLng},6))
+    </insert>
+
+    <update id="updateMj" parameterType="mj">
+        UPDATE MJ
+        SET
+            CUSTOMER_TB_NO = #{customerTbNo}
+	        , MJ_NAME = #{mjName}
+            , MJ_LOC = #{mjLoc}
+            , MJ_DATE = #{mjDate}
+            , MJ_COMMENT = #{mjComment}
+            , MJ_LAT = TRUNC(#{mjLat},6)
+            , MJ_LNG = TRUNC(#{mjLng},6)
+        WHERE MJ_SEQ = #{mjSeq}
+    </update>
+
+    <delete id="deleteMj" parameterType="mj">
+        DELETE FROM MJ WHERE MJ_SEQ = #{mjSeq}
+    </delete>
+
+</mapper>

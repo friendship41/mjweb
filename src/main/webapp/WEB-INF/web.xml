@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-         version="4.0">
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <welcome-file-list>
+        <welcome-file>welcomepage.jsp</welcome-file>
+    </welcome-file-list>
 
     <!-- 인코딩 필터 -->
     <filter>
@@ -32,14 +35,12 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>
                 /WEB-INF/dispatcher-servlet.xml
-                <!-- 아래처럼 각 팀원들이 만들 컨텍스트를 등록하면 됩니다.
-                /WEB-INF/spring/customContext/indexContext.xml -->
             </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
-        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.mdo</url-pattern>
     </servlet-mapping>
 </web-app>
